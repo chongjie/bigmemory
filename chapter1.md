@@ -72,26 +72,144 @@ test_mc(correct = 3, feedback_msgs = c(msg_bad_1, msg_bad_2, msg_success, msg_ba
 *** =video_link
 //player.vimeo.com/video/154783078
 
+
+
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2eb2a76879
 ## Who wins in data import?
 
-In the lecture, we have seen how the three popular data import functions (`read.table`, `data.table::fread`, `bigmemory::read.big.matrix`) perform.  Which one is the fastest, and which one uses the least memory?
+In the lecture, we have seen how the three popular data import functions (`read.table`, `data.table::fread`, `bigmemory::read.big.matrix`) perform against a moderately sized dataset.  Which one is the fastest, and which one uses the least memory?
 
 *** =instructions
+- fastest: `read.big.matrix`; least memory: `read.big.matrix`
+- fastest: `fread`; least memory: `fread`
+- fastest: `read.big.matrix`; least memory: `fread`
+- fastest: `fread`; least memory: `read.big.matrix`
 
 
 *** =hint
+Refer to the slides.
 
-*** =pre_exercise_code
+*** =sct
 ```{r}
+# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
+
+msg_bad <- "This is incorrect.  Try again."
+msg_success <- "That's correct!"
+test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success))
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:5db7dc4c3d
+## Creating a `big.matrix` object from scratch
+
+In this exercise, you will create a `big.matrix` object without any data load.  You will also explore the `big.matrix` object.
+
+*** =instructions
+1. Import the `bigmemory` library into your workspace.  
+2. Create a `big.matrix` object with 20 rows and 8 columns using the `big.matrix` function with the following arguments, keeping the other arguments in their default values.  Make sure you assign it to `x`: 
+
+        - nrow = 20, 
+        - ncol = 8, 
+        - type = "integer", -
+
+3. Call `x`.  
+4. Print `x` using the `print` function.  
+5. Print the structure of `x` to the console.  
+6. Set the seed as 0 and assign the values `sample(1:8, 160, replace = TRUE)` to x using `x[] <- ...`.  
+7. Print the `head` of `x`.  
+
+*** =hint
+- Use `str()` for the first instruction.
+- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
+- For the plot, use `plot(x = ..., y = ..., col = ...)`.
+
+
+*** =sample_code
+```{r}
+# 1. Import the `bigmemory` library. 
+
+
+# 2. Create the `big.matrix` object and assign it as `x`.  
+
+
+
+# 3. Call `x`.  
+
+
+
+# 4. Print `x` using the `print` function.  
+
+
+
+# 5. Print the structure of `x` to the console.  
+
+
+
+# 6. Assign values to `x`.  
+
+
+
+
+# 7. Print the `head` of `x`.  
+
+
+
+```
+
+*** =solution
+```{r}
+# 1. Import the `bigmemory` library. 
+library(bigmemory)
+
+# 2. Create the `big.matrix` object and assign it as `x`.  
+x <- big.matrix(nrow = 20, ncol = 8, type = "integer")
+
+
+# 3. Call `x`.  
+x
+
+
+# 4. Print `x` using the `print` function.  
+print(x)
+
+
+# 5. Print the structure of `x` to the console.  
+str(x)
+
+
+# 6. Set seed and assign values to `x`.  
+set.seed(0)
+x[] <- sample(1:8, 160, replace = TRUE)
+
+
+
+# 7. Print the `head` of `x`.  
+head(x)
+
 
 ```
 
 *** =sct
 ```{r}
+# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
+test_function("str", args = "object",
+              not_called_msg = "You didn't call `str()`!",
+              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+
+test_object("x")
+
+test_function("plot", args = "x")
+test_function("plot", args = "y")
+test_function("plot", args = "col")
+
+test_error()
+
+success_msg("Good work!")
 ```
---- type:NormalExercise lang:r xp:100 skills:1 key:5db7dc4c3d
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:cd7f15e068
 ## More movies
 
 In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
