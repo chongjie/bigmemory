@@ -6,14 +6,14 @@ attachments :
 
 
 --- type:VideoExercise lang:r xp:50 skills:1 key:f83d639107
-## What is the BigMemory Package?
+## What is the `bigmemory` Package?
 
 
 *** =video_link
 //player.vimeo.com/video/154783078
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:66e4d6f467
-## Limitations of R
+## Limitations of `R`
 
 What is the key limitation of R that many cluster computing packages aim to solve?
 
@@ -39,7 +39,7 @@ test_mc(correct = 3, feedback_msgs = c(msg_bad_1, msg_bad_2, msg_success, msg_ba
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:a8e1a512e4
-## BigMemory Package: Advantages and Disadvantages
+## `bigmemory` Package: Advantages and Disadvantages
 
 Which one of the following correctly states one advantage and one disadvantage of the BigMemory package over common cluster computing packages?
 
@@ -64,6 +64,33 @@ test_mc(correct = 3, feedback_msgs = c(msg_bad_1, msg_bad_2, msg_success, msg_ba
 ```
 
 
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:61fabb81d5
+## The `big.matrix` Object
+
+
+*** =video_link
+//player.vimeo.com/video/154783078
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2eb2a76879
+## Who wins in data import?
+
+In the lecture, we have seen how the three popular data import functions (`read.table`, `data.table::fread`, `bigmemory::read.big.matrix`) perform.  Which one is the fastest, and which one uses the least memory?
+
+*** =instructions
+
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
 --- type:NormalExercise lang:r xp:100 skills:1 key:5db7dc4c3d
 ## More movies
 
