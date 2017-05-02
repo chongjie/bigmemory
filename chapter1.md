@@ -1,41 +1,39 @@
 ---
-title       : Insert the chapter title here
-description : Insert the chapter description here
+title       : Introduction to BigMemeory Package
+description : How does the BigMemory Package differ from other Cluster Computing Packages?  When should we use the BigMemory Package?
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:66e4d6f467
-## A really bad movie
 
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
+--- type:VideoExercise lang:r xp:50 skills:1 key:f83d639107
+## What is the BigMemory Package?
+
+
+*** =video_link
+//player.vimeo.com/video/154783078
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:66e4d6f467
+## Limitations of R
+
+What is the key limitation of R that many cluster computing packages aim to solve?
 
 *** =instructions
-- Adventure
-- Action
-- Animation
-- Comedy
+- Data processing in R is slow on a local machine
+- Data size that can be loaded into R is limited by local disk space
+- Data processing is limited by RAM on a local machine
+- Data processing on local machines are not suitable for concurrent programming 
 
 *** =hint
-Have a look at the plot. Which color does the point with the lowest rating have?
-
-*** =pre_exercise_code
-```{r}
-# The pre exercise code runs code to initialize the user's workspace.
-# You can use it to load packages, initialize datasets and draw a plot in the viewer
-
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-library(ggplot2)
-
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
-```
+Refer to the slides. 
 
 *** =sct
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
-msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
+msg_bad_1 <- "Data processing speed is usually limited to the data object and function that is used.  Try again."
+msg_bad_2 <- "Disk space is rarely the issue since there are almost no limits to hard disk space nowadays.  Try again."
+msg_bad_4 <- "This is one issue with many cluster computing packages, and not the issue they aim to solve.  Try again."
+msg_success <- "That's correct!  RAM is the limiting factor, and cluster computing opens up access to more RAMs, thereby increasing the limilts of data processing load."
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
