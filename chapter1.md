@@ -37,6 +37,33 @@ msg_bad_4 <- "This is one issue with many cluster computing packages, and not th
 test_mc(correct = 3, feedback_msgs = c(msg_bad_1, msg_bad_2, msg_success, msg_bad_4))
 ```
 
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:a8e1a512e4
+## BigMemory Package: Advantages and Disadvantages
+
+Which one of the following correctly states one advantage and one disadvantage of the BigMemory package over common cluster computing packages?
+
+*** =instructions
+- Data processing in R is slow on a local machine
+- Data size that can be loaded into R is limited by local disk space
+- Data processing is limited by the RAM on a local machine
+- Data processing on local machines are not suitable for concurrent programming 
+
+*** =hint
+Refer to the slides. 
+
+*** =sct
+```{r}
+# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
+
+msg_bad_1 <- "Data processing speed is usually limited to the data object and function that is used.  Try again."
+msg_bad_2 <- "Disk space is rarely the issue since there are almost no limits to hard disk space nowadays.  Try again."
+msg_success <- "That's correct!  RAM is the limiting factor, and cluster computing opens up access to more RAMs, thereby increasing the limilts of data processing load."
+msg_bad_4 <- "This is one issue with many cluster computing packages, and not the issue they aim to solve.  Try again."
+test_mc(correct = 3, feedback_msgs = c(msg_bad_1, msg_bad_2, msg_success, msg_bad_4))
+```
+
+
 --- type:NormalExercise lang:r xp:100 skills:1 key:5db7dc4c3d
 ## More movies
 
