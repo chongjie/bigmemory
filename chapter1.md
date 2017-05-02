@@ -34,7 +34,7 @@ msg_bad_1 <- "Data processing speed is usually limited to the data object and fu
 msg_bad_2 <- "Disk space is rarely the issue since there are almost no limits to hard disk space nowadays.  Try again."
 msg_bad_4 <- "This is one issue with many cluster computing packages, and not the issue they aim to solve.  Try again."
 msg_success <- "That's correct!  RAM is the limiting factor, and cluster computing opens up access to more RAMs, thereby increasing the limilts of data processing load."
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
+test_mc(correct = 2, feedback_msgs = c(msg_bad_1, msg_bad_2, msg_success, msg_bad_4))
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:5db7dc4c3d
