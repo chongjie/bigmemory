@@ -106,22 +106,20 @@ In this exercise, you will create a `big.matrix` object without any data load.  
 
 *** =instructions
 1. Import the `bigmemory` library into your workspace.  
-2. Create a `big.matrix` object with 20 rows and 8 columns using the `big.matrix` function with the following arguments, keeping the other arguments in their default values.  Make sure you assign it to `x`: 
+2. Create a `big.matrix` object with 20 rows and 8 columns using the `big.matrix` function with the following arguments, keeping the other arguments in their default values.  Make sure you assign it to `bm`: 
 
         - nrow = 20, 
         - ncol = 8, 
         - type = "integer", -
 
-3. Call `x`.  
-4. Print `x` using the `print` function.  
-5. Print the structure of `x` to the console.  
-6. Set the seed as 0 and assign the values `sample(1:8, 160, replace = TRUE)` to x using `x[] <- ...`.  
-7. Print the `head` of `x`.  
+3. Call `bm`.  
+4. Print `bm` using the `print` function.  
+5. Print the structure of `bm` to the console.  
+6. Set the seed as 0 and assign the values `sample(1:8, 160, replace = TRUE)` to `bm` using `bm[] <- ...`.  
+7. Print the `head` of `bm`.  
 
 *** =hint
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`.
+- 
 
 
 *** =sample_code
@@ -129,28 +127,28 @@ In this exercise, you will create a `big.matrix` object without any data load.  
 # 1. Import the `bigmemory` library. 
 
 
-# 2. Create the `big.matrix` object and assign it as `x`.  
+# 2. Create the `big.matrix` object and assign it as `bm`.  
 
 
 
-# 3. Call `x`.  
+# 3. Call `bm`.  
 
 
 
-# 4. Print `x` using the `print` function.  
+# 4. Print `bm` using the `print` function.  
 
 
 
-# 5. Print the structure of `x` to the console.  
+# 5. Print the structure of `bm` to the console.  
 
 
 
-# 6. Assign values to `x`.  
+# 6. Assign values to `bm`.  
 
 
 
 
-# 7. Print the `head` of `x`.  
+# 7. Print the `head` of `bm`.  
 
 
 
@@ -161,30 +159,30 @@ In this exercise, you will create a `big.matrix` object without any data load.  
 # 1. Import the `bigmemory` library. 
 library(bigmemory)
 
-# 2. Create the `big.matrix` object and assign it as `x`.  
-x <- big.matrix(nrow = 20, ncol = 8, type = "integer")
+# 2. Create the `big.matrix` object and assign it as `bm`.  
+bm <- big.matrix(nrow = 20, ncol = 8, type = "integer")
 
 
-# 3. Call `x`.  
-x
+# 3. Call `bm`.  
+bm
 
 
-# 4. Print `x` using the `print` function.  
-print(x)
+# 4. Print `bm` using the `print` function.  
+print(bm)
 
 
-# 5. Print the structure of `x` to the console.  
-str(x)
+# 5. Print the structure of `bm` to the console.  
+str(bm)
 
 
-# 6. Set seed and assign values to `x`.  
+# 6. Set seed and assign values to `bm`.  
 set.seed(0)
-x[] <- sample(1:8, 160, replace = TRUE)
+bm[] <- sample(1:8, 160, replace = TRUE)
 
 
 
-# 7. Print the `head` of `x`.  
-head(x)
+# 7. Print the `head` of `bm`.  
+head(bm)
 
 
 ```
@@ -193,19 +191,43 @@ head(x)
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
+test_function("big.matrix", args = c("nrow"),
+              not_called_msg = "You didn't call `big.matrix()`!",
+              incorrect_msg = "You didn't call `big.matrix` with the correct arguments: `nrow`.")
+
+test_function("big.matrix", args = c("ncol"),
+              not_called_msg = "You didn't call `big.matrix()`!",
+              incorrect_msg = "You didn't call `big.matrix` with the correct arguments: `ncol`.")
+              
+test_function("big.matrix", args = c("type"),
+              not_called_msg = "You didn't call `big.matrix()`!",
+              incorrect_msg = "You didn't call `big.matrix` with the correct arguments: `type`.")
+
+test_function("print", args = "x",
+              not_called_msg = "You didn't call `print()`!",
+              incorrect_msg = "You didn't call `print` with the correct arguments: `x`")
+
 test_function("str", args = "object",
               not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+              incorrect_msg = "You didn't call `str()` with the correct argument, `object`.")
 
-test_object("x")
+test_function("set.seed", args = "object",
+              not_called_msg = "You didn't call `set.seed()`!",
+              incorrect_msg = "You didn't call `set.seed()` with the correct argument, `seed`.")
 
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
+test_function("head",
+              not_called_msg = "You didn't call `head()`!")
+
+
+test_object("bm"
+            , undefined_msg = "You have not defined `bm`!"
+            , incorrect_msg = "Check whether you have called the correct parameters when initializing `bm`, and set the correct seed when assigning values to `bm`!")
+
+
 
 test_error()
 
-success_msg("Good work!")
+success_msg("Good work! You have seen that the `big.matrix` object is a pointer, and we can see the values through the `print` or `head` function, and `head` is recommended over `print`.")
 ```
 
 
