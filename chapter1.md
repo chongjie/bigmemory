@@ -110,7 +110,7 @@ In this exercise, you will create a `big.matrix` object without any data load.  
 
         - nrow = 20, 
         - ncol = 8, 
-        - type = "integer", -
+        - type = "integer"  
 
 3. Call `bm`.  
 4. Print `bm` using the `print` function.  
