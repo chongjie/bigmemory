@@ -367,6 +367,69 @@ success_msg("Good work! `dim` is another useful function to explore `big.matrix`
 ```
 
 
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:e655e340ab
+## Importing data as `big.matrix` objects and operations on `big.matrix` objects
+
+
+*** =video_link
+//player.vimeo.com/video/154783078
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:00c3de9b07
+## Importing data as `big.matrix` objects
+
+In this exercise, you will import data directly as a `big.matrix` object.  You will explore learn the functions to check for file-backing and sharing.  
+
+*** =instructions
+Note: The `bigmemory` library has been loaded to your workspace.  
+
+1. 
+
+
+
+*** =hint
+- 
+
+
+*** =pre_exercise_code
+```{r}
+# Clean up the environment
+rm(bm)
+
+# Load the library
+library(bigmemory)
+```
+
+*** =sample_code
+```{r}
+
+
+
+```
+
+*** =solution
+```{r}
+
+
+
+```
+
+*** =sct
+```{r}
+# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
+
+test_function("set.seed", args = "object",
+              not_called_msg = "You didn't call `set.seed()`!",
+              incorrect_msg = "You didn't call `set.seed()` with the correct argument, `seed`.")
+
+test_object("bm"
+            , incorrect_msg = "You have not updated `bm` with values and column names!")
+
+test_error()
+
+success_msg("")
+
+```
 --- type:NormalExercise lang:r xp:100 skills:1 key:cd7f15e068
 ## More movies
 
