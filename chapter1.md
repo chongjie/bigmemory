@@ -113,13 +113,13 @@ In this exercise, you will create a `big.matrix` object without any data load.  
         - type = "integer"  
 
 3. Call `bm`.  
-4. Print `bm` using the `print` function.  
-5. Print the structure of `bm` to the console.  
-6. Set the seed as 0 and assign the values `sample(1:8, 160, replace = TRUE)` to `bm` using `bm[] <- ...`.  
+4. Print the structure of `bm` to the console.  
+5. Print the summary of `bm` to the console.  
+6. Print `bm` using the `print` function.  
 7. Print the `head` of `bm`.  
 
 *** =hint
-- 
+- For (2), make sure to specify only the number of rows, number of columns, and the data type.  
 
 
 *** =sample_code
@@ -135,16 +135,15 @@ In this exercise, you will create a `big.matrix` object without any data load.  
 
 
 
-# 4. Print `bm` using the `print` function.  
+# 4. Print the structure of `bm` to the console.  
 
 
 
-# 5. Print the structure of `bm` to the console.  
+# 5. Print the summary of `bm` to the console.  
 
 
 
-# 6. Assign values to `bm`.  
-
+# 6. Print `bm` using the `print` function.  
 
 
 
@@ -160,25 +159,25 @@ In this exercise, you will create a `big.matrix` object without any data load.  
 library(bigmemory)
 
 # 2. Create the `big.matrix` object and assign it as `bm`.  
-bm <- big.matrix(nrow = 20, ncol = 8, type = "integer")
+bm <- big.matrix(nrow = 20
+                 , ncol = 8
+                 , type = "integer")
 
 
 # 3. Call `bm`.  
 bm
 
 
-# 4. Print `bm` using the `print` function.  
-print(bm)
-
-
-# 5. Print the structure of `bm` to the console.  
+# 4. Print the structure of `bm` to the console.  
 str(bm)
 
 
-# 6. Set seed and assign values to `bm`.  
-set.seed(0)
-bm[] <- sample(1:8, 160, replace = TRUE)
+# 5. Print the summary of `bm` to the console.  
+summary(bm)
 
+
+# 6. Print `bm` using the `print` function.  
+print(bm)
 
 
 # 7. Print the `head` of `bm`.  
@@ -211,9 +210,9 @@ test_function("str", args = "object",
               not_called_msg = "You didn't call `str()`!",
               incorrect_msg = "You didn't call `str()` with the correct argument, `object`.")
 
-test_function("set.seed", args = "object",
-              not_called_msg = "You didn't call `set.seed()`!",
-              incorrect_msg = "You didn't call `set.seed()` with the correct argument, `seed`.")
+test_function("sumamry", args = "object",
+              not_called_msg = "You didn't call `summary()`!",
+              incorrect_msg = "You didn't call `summary()` with the correct argument, `object`.")
 
 test_function("head",
               not_called_msg = "You didn't call `head()`!")
@@ -224,6 +223,140 @@ test_object("bm"
             , incorrect_msg = "Check whether you have called the correct parameters when initializing `bm`, and set the correct seed when assigning values to `bm`!")
 
 
+
+test_error()
+
+success_msg("Good work! You have seen that the `big.matrix` object is a pointer, and neither `str` nor `summary` are useful in exploring the `big.matrix` object.  To display the values of a `big.matrix`, we can either use the `print` or `head` function, and `head` is recommended over `print`.")
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:5ab4179364
+## Creating a `big.matrix` object from scratch
+
+In this exercise, you will assign values to an initialized `big.matrix` object.  You will learn additional functions to explore the `big.matrix` object.  
+
+*** =instructions
+Note: The `bigmemory` library has been loaded to your workspace.  
+
+1. Run this section as it is.  Note that an additional line to allow row names and column names to be used is activated here.  
+2. Set the seed as 0 and assign the values `sample(1:8, 160, replace = TRUE)` to `bm` using `bm[] <- ...`.  
+3. Print the `head` of `bm`.  
+4. Print the `dim` of `bm`.
+5. Print the `colnames` of `bm`.  
+6. Assign the vector `letters[1:8]` as the column names of `bm`.  
+7. Print the `dim` of `bm` one more time to verify that the column names are now changed.  
+
+
+
+*** =hint
+- 
+
+
+*** =pre_exercise_code
+```{r}
+# Clean up the environment
+rm(bm)
+
+# Load the library
+library(bigmemory)
+```
+
+*** =sample_code
+```{r}
+# 1. Run this section as it is.  Note that an additional line to allow row names and column names to be used is activated here.  
+options(bigmemory.allow.dimnames = TRUE)
+bm <- big.matrix(nrow = 20
+                 , ncol = 8
+                 , type = "integer")
+
+# 2. Set the seed as 0 and assign the values `sample(1:8, 160, replace = TRUE)` to `bm` using `bm[] <- ...`.   
+
+
+
+# 3. Print the `head` of `bm`.  
+
+
+
+# 4. Print the `dim` of `bm`.  
+
+
+
+# 5. Print the `colnames` of `bm`.  
+
+
+
+# 6. Assign the vector `letters[1:8]` as the column names of `bm`.  
+
+
+
+# 7. Print the `dim` of `bm` one more time to verify that the column names are now changed.  
+
+
+
+
+
+```
+
+*** =solution
+```{r}
+# 1. Run this section as it is.  Note that an additional line to allow row names and column names to be used is activated here.  
+options(bigmemory.allow.dimnames = TRUE)
+bm <- big.matrix(nrow = 20
+                 , ncol = 8
+                 , type = "integer")
+
+
+# 2. Set the seed as 0 and assign the values `sample(1:8, 160, replace = TRUE)` to `bm` using `bm[] <- ...`.   
+set.seed(0)
+bm[] <- sample(1:8, 160, replace = TRUE)
+
+
+
+# 3. Print the `head` of `bm`.  
+head(bm)
+
+
+
+# 4. Print the `dim` of `bm`.  
+dim(bm)
+
+
+
+# 5. Print the `colnames` of `bm`.  
+colnames(bm)
+
+
+
+# 6. Assign the vector `letters[1:8]` as the column names of `bm`.  
+colnames(bm) <- letters[1:8]
+
+
+
+# 7. Print the `dim` of `bm` one more time to verify that the column names are now changed.  
+colnames(bm)
+
+
+```
+
+*** =sct
+```{r}
+# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
+
+test_function("set.seed", args = "object",
+              not_called_msg = "You didn't call `set.seed()`!",
+              incorrect_msg = "You didn't call `set.seed()` with the correct argument, `seed`.")
+
+test_function("head",
+              not_called_msg = "You didn't call `head()`!")
+
+test_function("dim",
+              not_called_msg = "You didn't call `dim()`!")
+
+test_function("colnames",
+              not_called_msg = "You didn't call `colnames()`!")
+
+test_object("bm"
+            , incorrect_msg = "You have not updated `bm` with values and column names!")
 
 test_error()
 
