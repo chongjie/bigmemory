@@ -232,7 +232,7 @@ success_msg("Good work! You have seen that the `big.matrix` object is a pointer,
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:5ab4179364
-## Creating a `big.matrix` object from scratch
+## Assigning values and column names to a `big.matrix` object
 
 In this exercise, you will assign values to an initialized `big.matrix` object.  You will learn additional functions to explore the `big.matrix` object.  
 
@@ -245,7 +245,7 @@ Note: The `bigmemory` library has been loaded to your workspace.
 4. Print the `dim` of `bm`.
 5. Print the `colnames` of `bm`.  
 6. Assign the vector `letters[1:8]` as the column names of `bm`.  
-7. Print the `dim` of `bm` one more time to verify that the column names are now changed.  
+7. Print the `colnames` of `bm` one more time to verify that the column names are now changed.  
 
 
 
@@ -290,7 +290,7 @@ bm <- big.matrix(nrow = 20
 
 
 
-# 7. Print the `dim` of `bm` one more time to verify that the column names are now changed.  
+# 7. Print the `colnames` of `bm` one more time to verify that the column names are now changed.  
 
 
 
@@ -333,7 +333,7 @@ colnames(bm) <- letters[1:8]
 
 
 
-# 7. Print the `dim` of `bm` one more time to verify that the column names are now changed.  
+# 7. Print the `colnames` of `bm` one more time to verify that the column names are now changed.  
 colnames(bm)
 
 
