@@ -227,6 +227,7 @@ test_object("bm"
 test_error()
 
 success_msg("Good work! You have seen that the `big.matrix` object is a pointer, and neither `str` nor `summary` are useful in exploring the `big.matrix` object.  To display the values of a `big.matrix`, we can either use the `print` or `head` function, and `head` is recommended over `print`.")
+
 ```
 
 
@@ -360,7 +361,8 @@ test_object("bm"
 
 test_error()
 
-success_msg("Good work! You have seen that the `big.matrix` object is a pointer, and we can see the values through the `print` or `head` function, and `head` is recommended over `print`.")
+success_msg("Good work! `dim` is another useful function to explore `big.matrix` objects.  Also, if you wish to assign row and/or column names to a `big.matrix` object, make sure that you set the options as shown in the code.")
+
 ```
 
 
