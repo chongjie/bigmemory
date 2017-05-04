@@ -250,7 +250,8 @@ Note: The `bigmemory` library has been loaded to your workspace.
 
 
 *** =hint
-- 
+- For (2), did you include `set.seed(0)`?  Also, did you use `bm[] <- ...` to assign the values to `bm`?
+- For (6), did you assign the correct vector to `colnames(bm)`?
 
 
 *** =pre_exercise_code
